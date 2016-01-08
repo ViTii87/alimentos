@@ -43,10 +43,20 @@ public class Usuario
     * Metodo para mostrar los datos del usuario
     */
    public void mostrarDatos(){
-       System.out.println("Nombre: \t\t\t\t\t" + nombreCompleto);
-       System.out.println("Gramos totales de proteinas ingeridos: \t\t" + proteinasIngeridas);
-       System.out.println("Gramos totales de carbohidratos ingeridos: \t" + carbohidratosIngeridos);
-       System.out.println("Gramos totales de grasas ingeridos: \t\t" + grasasIngeridas);
-       System.out.println("Calorias totales ingeridas: \t\t\t" + caloriasUsuario);
+       if(proteinasIngeridas!=0 || carbohidratosIngeridos!=0 || grasasIngeridas!=0){
+           float totalGramos = proteinasIngeridas + carbohidratosIngeridos + grasasIngeridas;
+           System.out.println("Nombre: \t\t\t\t\t" + nombreCompleto);
+           System.out.println("Gramos totales de proteinas ingeridos: \t\t" + proteinasIngeridas + "(" + ((proteinasIngeridas/totalGramos)*100) + "%)");
+           System.out.println("Gramos totales de carbohidratos ingeridos: \t" + carbohidratosIngeridos + "(" + ((carbohidratosIngeridos/totalGramos)*100) + "%)");
+           System.out.println("Gramos totales de grasas ingeridos: \t\t" + grasasIngeridas + "(" + ((grasasIngeridas/totalGramos)*100) + "%)");
+           System.out.println("Calorias totales ingeridas: \t\t\t" + caloriasUsuario);
+       }
+       else{
+           System.out.println("Nombre: \t\t\t\t\t" + nombreCompleto);
+           System.out.println("Gramos totales de proteinas ingeridos: \t\t" + proteinasIngeridas);
+           System.out.println("Gramos totales de carbohidratos ingeridos: \t" + carbohidratosIngeridos);
+           System.out.println("Gramos totales de grasas ingeridos: \t\t" + grasasIngeridas);
+           System.out.println("Calorias totales ingeridas: \t\t\t" + caloriasUsuario);
+       }
    }
 }
