@@ -56,4 +56,32 @@ public class Alimento
         }
         System.out.println("Componente/s mayoritario/s: " + mayoritario);
     }
+    
+    /**
+     * Metodo para devolver las proteinas del alimento
+     */
+    public float getProteinas(){
+        return proteinas;
+    }
+    
+    /**
+     *  Metodo para devolver los carbohidratos del alimento
+     */
+    public float getCarbohidratos(){
+        return carbohidratos;
+    }
+    
+    /**
+     *  Metodo para devolver las grasas del alimento
+     */
+    public float getGrasas(){
+        return grasas;
+    }
+    
+    /**
+     *  Metodo para devolver las calorias del alimento
+     */
+    public float getCalorias(){
+        return calorias;
+    }
 }
