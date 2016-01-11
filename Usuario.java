@@ -59,4 +59,37 @@ public class Usuario
            System.out.println("Calorias totales ingeridas: \t\t\t" + caloriasUsuario);
        }
    }
+   
+   /**
+    * Metodo que nos devolvera las calorias totales de nuestro usuario.
+    */
+   public float getCaloriasTotales(){
+       return caloriasUsuario;
+   }
+   
+   /**
+   * Metodo que nos devolvera el nombre de nuestro usuario.
+   */
+   public String getNombreCompleto(){
+       return nombreCompleto;
+   }
+   
+   /**
+    * Metodo que compara las calorias de dos usurios e indica que el de ellos ha consumido mas.
+    * Le pasamos por parametro el segundo usuario con el que queremos comparar.
+    */
+   public void comparaCalorias(Usuario usuario2){
+       String comparacion;
+       comparacion = getNombreCompleto() + " ha consumido más calorias que " + usuario2.getNombreCompleto() + " (" + getCaloriasTotales() 
+       + " frente a " + usuario2.getCaloriasTotales() + ")";
+       if(getCaloriasTotales() < usuario2.getCaloriasTotales()){
+           comparacion = usuario2.getNombreCompleto() + " ha consumido más calorias que " + getNombreCompleto() + " (" + usuario2.getCaloriasTotales() 
+           + " frente a " + getCaloriasTotales() + ")";
+       }
+       else if(getCaloriasTotales() == usuario2.getCaloriasTotales()){
+               comparacion = getNombreCompleto() + " ha consumido las mismas calorias que " + usuario2.getNombreCompleto() 
+               + " (" + getCaloriasTotales() + ")";
+       }
+       System.out.println(comparacion);
+    }
 }
