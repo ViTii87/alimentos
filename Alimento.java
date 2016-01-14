@@ -84,4 +84,12 @@ public class Alimento
     public float getCalorias(){
         return calorias;
     }
+    
+    /**
+     * Metodo para devolver el nombre del alimento
+     */
+    public String getName(){
+        return nombre;
+    }
 }
+

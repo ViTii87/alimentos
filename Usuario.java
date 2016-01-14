@@ -17,6 +17,10 @@ public class Usuario
    private float grasasIngeridas;
    //Atributo para guardar las calorias totales del usuario.
    private float caloriasUsuario;
+   //Atributo que nos permite guardar el alimento mas calorico
+   private Alimento masCalorico;
+   //Atributo que nos guarda las calorias de cada alimento para compararlas con el anterior
+   private float caloriasAlimento;
    
    /**
     * Constructor que crea usuarios.
@@ -27,6 +31,7 @@ public class Usuario
        carbohidratosIngeridos = 0;
        grasasIngeridas = 0;
        caloriasUsuario = 0;
+       caloriasAlimento = 0;
    }
    
    /**
@@ -37,6 +42,12 @@ public class Usuario
        carbohidratosIngeridos = carbohidratosIngeridos + (comida.getCarbohidratos() * (cantidad/100));
        grasasIngeridas = grasasIngeridas + (comida.getGrasas() * (cantidad/100));
        caloriasUsuario = caloriasUsuario + (comida.getCalorias() * (cantidad/100));
+       
+       //Comrobamos si hemos ingerido el alimento mas calorico.
+       if(comida.getCalorias()>caloriasAlimento){
+           caloriasAlimento = comida.getCalorias();
+           masCalorico = comida;
+       }
    }
    
    /**
@@ -92,4 +103,17 @@ public class Usuario
        }
        System.out.println(comparacion);
     }
+   
+    /**
+     * Metodo que nos imprimira por pantalla el nombre del alimento mas calorico y sus calorias por cada 100 gramos
+     */
+   public void alimentoMasCalorico(){
+       if(caloriasAlimento == 0){
+           System.out.println("Todavia no se ha ingerido ningun alimento.");
+       }
+       else {
+           System.out.println("Alimento mas calorico ingerido por este usuario hasta el momento: " + masCalorico.getName() + " (" + masCalorico.getCalorias() +
+           " calorias por cada 100 gramos)");
+       }
+   }
 }
