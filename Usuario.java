@@ -44,7 +44,7 @@ public class Usuario
        caloriasUsuario = caloriasUsuario + (comida.getCalorias() * (cantidad/100));
        
        //Comrobamos si hemos ingerido el alimento mas calorico.
-       if(comida.getCalorias()>caloriasAlimento){
+       if(comida.getCalorias()>=caloriasAlimento){
            caloriasAlimento = comida.getCalorias();
            masCalorico = comida;
        }
