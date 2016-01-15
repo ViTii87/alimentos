@@ -133,7 +133,7 @@ public class Usuario
    }
    
    /**
-    * Metodo para saber si el ususrio ha comido un alimento (pasado por parametro) mas de una vez.
+    * Metodo para saber si el usuario ha comido un alimento (pasado por parametro) mas de una vez.
     */
    public void cuantosCome(String nombreAlimento){
        int numVecesAlimento = 0;
@@ -142,11 +142,26 @@ public class Usuario
                numVecesAlimento += 1;
            }
        }
-       if(numVecesAlimento == 0){
-           System.out.println("El usuario no ha ingerido ninguna vez " + nombreAlimento);
+       if(numVecesAlimento < 2){
+           System.out.println("El usuario no ha ingerido mas de una vez " + nombreAlimento);
        }
        else{
-           System.out.println("El usuario ha ingerido " + numVecesAlimento + " veces " + nombreAlimento);
+           if(numVecesAlimento > 1){
+               System.out.println("El usuario ha ingerido " + numVecesAlimento + " veces " + nombreAlimento);
+           }
+       }
+   }
+   
+   /**
+    * Metodo para saber cuantos alimentos ha comido un usuario de cada tipo.
+    */
+   public void cuantosComeDeCadaTipo(){
+       String nombresAlimentos = "";
+       for(Alimento comida : arrayDeAlimentos){
+           if(!(nombresAlimentos.contains(comida.getName()))){
+               cuantosCome(comida.getName());
+               nombresAlimentos = nombresAlimentos + comida.getName();
+           }
        }
    }
 }
