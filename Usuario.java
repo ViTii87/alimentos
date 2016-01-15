@@ -131,4 +131,22 @@ public class Usuario
            System.out.println("Indice introducido incorrecto, no existen alimentos en esa posicion");
        }
    }
+   
+   /**
+    * Metodo para saber si el ususrio ha comido un alimento (pasado por parametro) mas de una vez.
+    */
+   public void cuantosCome(String nombreAlimento){
+       int numVecesAlimento = 0;
+       for(Alimento comida : arrayDeAlimentos){
+           if(comida.getName() == nombreAlimento){
+               numVecesAlimento += 1;
+           }
+       }
+       if(numVecesAlimento == 0){
+           System.out.println("El usuario no ha ingerido ninguna vez " + nombreAlimento);
+       }
+       else{
+           System.out.println("El usuario ha ingerido " + numVecesAlimento + " veces " + nombreAlimento);
+       }
+   }
 }
