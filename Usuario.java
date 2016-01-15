@@ -124,9 +124,6 @@ public class Usuario
     * Metodo que nos permitira visualizar en el orden ingerido por el usuario un alimento. 
     */
    public void posicionAlimentoIngerido(int index){
-       int indiceArray=0;
-       boolean buscando = true;
-       //Hacemos esta comprobacion para mostrar un mensaje de error si introducimos un indice incorrecto.
        if(index < arrayDeAlimentos.size() && index > -1){
            arrayDeAlimentos.get(index).muestraDatos();
        }
