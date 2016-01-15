@@ -128,22 +128,10 @@ public class Usuario
        boolean buscando = true;
        //Hacemos esta comprobacion para mostrar un mensaje de error si introducimos un indice incorrecto.
        if(index < arrayDeAlimentos.size() && index > -1){
-           //Recorremos nuestro array hasta que encontremos el indice buscado, entonces lo paramos
-           while(indiceArray < arrayDeAlimentos.size() && buscando){
-               if(index == indiceArray){
-                   buscando = false;
-                }
-                else{
-                    indiceArray += 1;
-               }
-            }
+           arrayDeAlimentos.get(index).muestraDatos();
        }
        else{
            System.out.println("Indice introducido incorrecto, no existen alimentos en esa posicion");
-       }
-       //Como hemos encontrado elemento, mostramos los datos.
-       if(buscando == false){
-           arrayDeAlimentos.get(index).muestraDatos();
        }
    }
 }
