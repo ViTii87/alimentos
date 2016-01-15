@@ -124,8 +124,8 @@ public class Usuario
     * Metodo que nos permitira visualizar en el orden ingerido por el usuario un alimento. 
     */
    public void posicionAlimentoIngerido(int index){
-       if(index < arrayDeAlimentos.size() && index > -1){
-           arrayDeAlimentos.get(index).muestraDatos();
+       if(index-1 < arrayDeAlimentos.size() && index > 0){
+           arrayDeAlimentos.get(index-1).muestraDatos();
        }
        else{
            System.out.println("Indice introducido incorrecto, no existen alimentos en esa posicion");
