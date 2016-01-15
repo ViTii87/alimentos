@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Usuario here.
  * 
@@ -19,6 +19,8 @@ public class Usuario
    private float caloriasUsuario;
    //Atributo que nos permite guardar el alimento mas calorico
    private Alimento masCalorico;
+   //Atributo de tipo ArrayList que nos permitira guardar los alimentos en el orden ingerido
+   private ArrayList<Alimento> arrayDeAlimentos;
    
    /**
     * Constructor que crea usuarios.
@@ -29,6 +31,8 @@ public class Usuario
        carbohidratosIngeridos = 0;
        grasasIngeridas = 0;
        caloriasUsuario = 0;
+       masCalorico = null;
+       arrayDeAlimentos = new ArrayList<Alimento>();
    }
    
    /**
@@ -40,10 +44,13 @@ public class Usuario
        grasasIngeridas = grasasIngeridas + (comida.getGrasas() * (cantidad/100));
        caloriasUsuario = caloriasUsuario + (comida.getCalorias() * (cantidad/100));
        
-     if(masCalorico==null || comida.getCalorias() >= masCalorico.getCalorias()){
-          masCalorico = comida;
-     }
-      
+       //Añadimos el alimento a nuestro array de alimentos.
+       arrayDeAlimentos.add(comida);
+       
+       //Comprobamos si hay algun alimentos mas calorico o si el ingerido es mayor que el que habia.
+       if(masCalorico==null || comida.getCalorias() >= masCalorico.getCalorias()){
+           masCalorico = comida;
+        }
    }
    
    /**
@@ -110,6 +117,33 @@ public class Usuario
        else {
            System.out.println("Alimento mas calorico ingerido por este usuario hasta el momento: " + masCalorico.getName() + " (" + masCalorico.getCalorias() +
            " calorias por cada 100 gramos)");
+       }
+   }
+   
+   /**
+    * Metodo que nos permitira visualizar en el orden ingerido por el usuario un alimento. 
+    */
+   public void posicionAlimentoIngerido(int index){
+       int indiceArray=0;
+       boolean buscando = true;
+       //Hacemos esta comprobacion para mostrar un mensaje de error si introducimos un indice incorrecto.
+       if(index < arrayDeAlimentos.size() && index > -1){
+           //Recorremos nuestro array hasta que encontremos el indice buscado, entonces lo paramos
+           while(indiceArray < arrayDeAlimentos.size() && buscando){
+               if(index == indiceArray){
+                   buscando = false;
+                }
+                else{
+                    indiceArray += 1;
+               }
+            }
+       }
+       else{
+           System.out.println("Indice introducido incorrecto, no existen alimentos en esa posicion");
+       }
+       //Como hemos encontrado elemento, mostramos los datos.
+       if(buscando == false){
+           arrayDeAlimentos.get(index).muestraDatos();
        }
    }
 }
