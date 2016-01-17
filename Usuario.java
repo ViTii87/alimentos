@@ -157,10 +157,19 @@ public class Usuario
     */
    public void cuantosComeDeCadaTipo(){
        String nombresAlimentos = "";
+       int numVecesAlimento = 0;
        for(Alimento comida : arrayDeAlimentos){
            if(!(nombresAlimentos.contains(comida.getName()))){
-               System.out.println(comida.getName());
-               nombresAlimentos = nombresAlimentos + comida.getName();
+              for(Alimento comidaRepe : arrayDeAlimentos){
+                  if(comida.getName() == comidaRepe.getName()){
+                      numVecesAlimento += 1;
+                  }
+              }
+              if(numVecesAlimento > 1){
+                  System.out.println(comida.getName());
+              }
+              numVecesAlimento = 0;
+              nombresAlimentos = nombresAlimentos + comida.getName();
            }
        }
    }
