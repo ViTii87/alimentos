@@ -159,7 +159,7 @@ public class Usuario
        String nombresAlimentos = "";
        for(Alimento comida : arrayDeAlimentos){
            if(!(nombresAlimentos.contains(comida.getName()))){
-               cuantosCome(comida.getName());
+               System.out.println(comida.getName());
                nombresAlimentos = nombresAlimentos + comida.getName();
            }
        }
