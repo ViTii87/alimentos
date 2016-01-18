@@ -158,11 +158,13 @@ public class Usuario
    public void cuantosComeDeCadaTipo(){
        String nombresAlimentos = "";
        int numVecesAlimento = 0;
+       boolean noHayRepes = true;
        for(Alimento comida : arrayDeAlimentos){
            if(!(nombresAlimentos.contains(comida.getName()))){
               for(Alimento comidaRepe : arrayDeAlimentos){
                   if(comida.getName() == comidaRepe.getName()){
                       numVecesAlimento += 1;
+                      noHayRepes = false;
                   }
               }
               if(numVecesAlimento > 1){
@@ -171,6 +173,9 @@ public class Usuario
               numVecesAlimento = 0;
               nombresAlimentos = nombresAlimentos + comida.getName();
            }
+       }
+       if(noHayRepes){
+           System.out.println("No se ha consumido ningun alimento mas de una vez");
        }
    }
 }
