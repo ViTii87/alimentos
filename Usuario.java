@@ -164,11 +164,11 @@ public class Usuario
               for(Alimento comidaRepe : arrayDeAlimentos){
                   if(comida.getName() == comidaRepe.getName()){
                       numVecesAlimento += 1;
-                      noHayRepes = false;
                   }
               }
               if(numVecesAlimento > 1){
                   System.out.println(comida.getName());
+                  noHayRepes = false;
               }
               numVecesAlimento = 0;
               nombresAlimentos = nombresAlimentos + comida.getName();
